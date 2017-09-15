@@ -65,8 +65,10 @@ if(isset($_POST["create_pdf"]))
 
 	$content .= '</table>';
 
+	$pdffilepath = getcwd()."/pdfs/";
+	$pdffilename = 'record_'.date('YmdHis').'.pdf';
 	$obj_pdf->writeHTML($content);
-	$obj_pdf->Output("sample.pdf", "I");
+	$obj_pdf->Output($pdffilepath.$pdffilename, 'F');
 
 }
 
