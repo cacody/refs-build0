@@ -10,6 +10,7 @@ echo $firstname . " " .$lastname;
 echo '<br>';
 echo getcwd()."/pdfs/";
 echo '<hr><br>';
+phpinfo();
 
 
 require_once "classes/tcpdf/tcpdf.php";
@@ -48,7 +49,7 @@ if(!$mail->send()) {
   echo 'Message has been sent.';
 }
 
-echo phpinfo();
+
 
 
 
