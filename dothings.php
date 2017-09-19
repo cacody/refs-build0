@@ -12,7 +12,7 @@ echo getcwd()."/pdfs/";
 echo '<hr><br>';
 
 
-require_once "./classes/tcpdf/tcpdf.php";
+require_once "classes/tcpdf/tcpdf.php";
 $obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 $obj_pdf->SetCreator(PDF_CREATOR);
 $obj_pdf->SetTitle("Export HTML table data using TCPDF");
@@ -35,7 +35,7 @@ $content .= "
 
 ";
 
-$pdffilepath = getcwd()."/pdfs/";
+$pdffilepath = "pdfs/";
 $pdffilename = 'RECORD_'.date('YmdHis').'.pdf';
 $obj_pdf->writeHTML($content);
 $obj_pdf->Output($pdffilepath.$pdffilename, 'F');
