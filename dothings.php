@@ -7,6 +7,8 @@ echo '<br>';
 $firstname = $_POST['first_name'];
 $lastname = $_POST['last_name'];
 echo $firstname . " " .$lastname;
+echo '<br>';
+echo getcwd()."/pdfs/";
 echo '<hr><br>';
 
 
