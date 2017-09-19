@@ -27,21 +27,15 @@ $obj_pdf->setPrintFooter(false);
 $obj_pdf->SetAutoPageBreak(TRUE, 10);
 $obj_pdf->SetFont('helvetica', '', 12);
 $obj_pdf->addPage();
-
 $content = '';
-
-$content .= "
-	<h3 align=\"center\">$firstname $lastname</h3>
-
-";
-
+$content .= "<h3 align=\"center\">$firstname $lastname</h3>";
 $pdffilepath = "pdfs/";
 $pdffilename = 'RECORD_'.date('YmdHis').'.pdf';
 $obj_pdf->writeHTML($content);
 $obj_pdf->Output($pdffilepath.$pdffilename, 'F');
 
 
-require './classes/PHPMailer_5.2.1/class.phpmailer.php';
+require 'classes/PHPMailer_5.2.1/class.phpmailer.php';
 $mail = new PHPMailer;
 $mail->setFrom('barleyandhops@beerworld.com', "$firstname");
 $mail->addAddress('cacody@umich.edu', 'My Friend');
@@ -54,6 +48,7 @@ if(!$mail->send()) {
   echo 'Message has been sent.';
 }
 
+echo phpinfo();
 
 
 
