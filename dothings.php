@@ -8,9 +8,9 @@ $firstname = $_POST['first_name'];
 $lastname = $_POST['last_name'];
 echo $firstname . " " .$lastname;
 echo '<br>';
-echo getcwd()."/pdfs/";
+$myPath getcwd()."/pdfs/";
 echo '<hr><br>';
-phpinfo();
+//phpinfo();
 
 
 require_once "./classes/tcpdf/tcpdf.php";
@@ -30,7 +30,7 @@ $obj_pdf->SetFont('helvetica', '', 12);
 $obj_pdf->addPage();
 $content = '';
 $content .= "<h3 align=\"center\">$firstname $lastname</h3>";
-$pdffilepath = "pdfs/";
+$pdffilepath = $myPath;
 $pdffilename = 'RECORD_'.date('YmdHis').'.pdf';
 $obj_pdf->writeHTML($content);
 $obj_pdf->Output($pdffilepath.$pdffilename, 'F');
