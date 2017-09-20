@@ -33,7 +33,7 @@ $content .= "<h3 align=\"center\">$firstname $lastname</h3>";
 $pdffilepath = $myPath;
 $pdffilename = 'RECORD_'.date('YmdHis').'.pdf';
 $obj_pdf->writeHTML($content);
-$obj_pdf->Output($pdffilepath.$pdffilename, 'F');
+$obj_pdf->Output("$pdffilepath.$pdffilename", 'F');
 
 echo $pdffilepath.$pdffilename;
 
