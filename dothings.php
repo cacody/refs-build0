@@ -1,9 +1,12 @@
 <?php
 
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors', "1");
+ini_set("allow_url_fopen", "1");
 
 foreach ($_POST as $var=>$val) $$var = $val;
+
+// verifying / testing / var dumping / etc. 
 
 echo $_POST['first_name'];
 echo '<br>';
@@ -19,12 +22,13 @@ echo '<br>';
 echo '<br>';
 //phpinfo();
 
-$myfile = fopen("$firstname-newfile.txt", "W") or die("Unable to open file!");
-$txt = "John Doe\n";
-fwrite($myfile, $txt);
-$txt = "Jane Doe\n";
-fwrite($myfile, $txt);
-fclose($myfile);
+// save file locally
+
+$my_file = $lastname . "_file.txt";
+echo $my_file . "<br>";
+$handle = fopen($my_file, 'w') or die('Cannot open file:  ' '.$my_file');
+
+
 
 $pdffilename = $firstname . '-' . $lastname.'.pdf';
 
