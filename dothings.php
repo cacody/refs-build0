@@ -19,7 +19,7 @@ echo '<br>';
 echo '<br>';
 //phpinfo();
 
-$myfile = fopen($firstname."-newfile.txt", "W") or die("Unable to open file!");
+$myfile = fopen("$firstname-newfile.txt", "W") or die("Unable to open file!");
 $txt = "John Doe\n";
 fwrite($myfile, $txt);
 $txt = "Jane Doe\n";
