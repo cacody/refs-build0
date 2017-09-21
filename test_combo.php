@@ -16,7 +16,8 @@
 	</form>
 	<hr>
 	<?php echo $_SERVER['DOCUMENT_ROOT'];?>
-	<?php echo $_SERVER['PATH_TRANSLATED'];?>
+	<hr>
+	<?php echo phpinfo(); ?>
 	
 </body>
 

@@ -12,8 +12,15 @@ $pdffilepath = $_SERVER['DOCUMENT_ROOT'] . "/pdfs" . "/";
 echo $pdffilepath;
 echo '<hr><br>';
 echo $_SERVER['DOCUMENT_ROOT'];
+echo '<br>';
 //phpinfo();
 
+$myfile = fopen($firstname."newfile.txt", "w") or die("Unable to open file!");
+$txt = "John Doe\n";
+fwrite($myfile, $txt);
+$txt = "Jane Doe\n";
+fwrite($myfile, $txt);
+fclose($myfile);
 
 $pdffilename = $firstname . '-' . $lastname.'.pdf';
 
