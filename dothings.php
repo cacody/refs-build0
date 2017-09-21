@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 foreach ($_POST as $var=>$val) $$var = $val;
 
 echo $_POST['first_name'];
@@ -15,7 +18,7 @@ echo $_SERVER['DOCUMENT_ROOT'];
 echo '<br>';
 //phpinfo();
 
-$myfile = fopen($firstname."newfile.txt", "w") or die("Unable to open file!");
+$myfile = fopen($firstname."/newfile.txt", "w") or die("Unable to open file!");
 $txt = "John Doe\n";
 fwrite($myfile, $txt);
 $txt = "Jane Doe\n";
@@ -27,13 +30,6 @@ $pdffilename = $firstname . '-' . $lastname.'.pdf';
 require_once "classes/tcpdf/tcpdf.php";
 $obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 $obj_pdf->SetCreator(PDF_CREATOR);
-$obj_pdf->SetTitle("Export HTML table data using TCPDF");
-$obj_pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
-$obj_pdf->SetMargins(PDF_MARGIN_LEFT, '5', PDF_MARGIN_RIGHT);
-$obj_pdf->setPrintHeader(false);
-$obj_pdf->setPrintFooter(false);
-$obj_pdf->SetAutoPageBreak(TRUE, 10);
-$obj_pdf->SetFont('helvetica', '', 12);
 $obj_pdf->addPage();
 $content = '';
 $content .= "<p>$firstname $lastname</p>";
