@@ -14,7 +14,8 @@
 
 		<p><input type="submit" value="Submit"></p>
 	</form>
-	
+	<hr>
+	<?php echo $_SERVER['DOCUMENT_ROOT'];?>
 	
 </body>
 

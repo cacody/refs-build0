@@ -8,11 +8,14 @@ $firstname = $_POST['first_name'];
 $lastname = $_POST['last_name'];
 echo $firstname . " " .$lastname;
 echo '<br>';
-$pdffilepath = getcwd() . "/pdfs" . "/";
+$pdffilepath = $_SERVER['DOCUMENT_ROOT'] . "/pdfs" . "/";
 echo $pdffilepath;
 echo '<hr><br>';
+echo $_SERVER['DOCUMENT_ROOT'];
 //phpinfo();
 
+
+$pdffilename = $firstname . '-' . $lastname.'.pdf';
 
 require_once "classes/tcpdf/tcpdf.php";
 $obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -27,7 +30,6 @@ $obj_pdf->SetFont('helvetica', '', 12);
 $obj_pdf->addPage();
 $content = '';
 $content .= "<p>$firstname $lastname</p>";
-$pdffilename = $firstname . '-' . $lastname.'.pdf';
 $obj_pdf->writeHTML($content);
 $obj_pdf->Output($pdffilepath.$pdffilename, 'F');
 
